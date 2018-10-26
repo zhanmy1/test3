@@ -10,11 +10,15 @@ position = old_file_name.rfind(".")
 new_file_name = old_file_name[0:position] + "[复件]" + old_file_name[position:]
 f_write = open(new_file_name,"w")
 
-#4.从原文件中读取数据
-content = f_read.read()
 
-#5.将读取的数据写入到新文件中
-f_write.write(content)
+while True:
+	#4.从原文件中读取数据
+	content = f_read.read(1024)
+	if len(content)==0:
+		break
+
+	#5.将读取的数据写入到新文件中
+	f_write.write(content)
 
 
 #6.关闭两个文件
